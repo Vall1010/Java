@@ -1,0 +1,100 @@
+/*
+ 
+
+convert FAHRENHEIT to CELCIUS 
+or CELCIUS to FAHRENHEIT 
+
+
+make a psuedo code
+define variables needed 
+
+
+class is ProjTemp
+
+user is asked if the conversion is CELCIUS to FAHRENHEIT or
+vise-versa
+
+
+If : C to F enter 1
+formula 
+((temp -32) *5)/9
+
+If: F to C enter 2
+
+(temp* 1.8) + 32
+
+user will input value
+
+program will display the input value and the converted value using methods 
+or program will display invalid if the values entered are not valid
+
+ */
+
+//scanner imported 
+import java.util.Scanner;
+
+public class ProjTemp {
+
+	public static void main(String[] args) {
+
+		//variables made 
+		double Far,Cel,f,c;  
+		
+		
+		//create scanner for user input  
+		Scanner obj=new Scanner(System.in);
+		
+		System.out.println("Welcome to our simple Temperature converter App!!"+ '\n' +"Please enter \"1\" "
+				+ "to convert CELCIUS to FAHRENHEIT or \"2\" to convert FAHRENHEIT to CELCIUS");
+
+		//input obj to store if else object value 
+		int input= obj.nextInt();
+		
+		
+		//if user wants to convert temperature to FAHRENHEIT
+		if(input==1) {
+			
+			System.out.println("Please enter CELCIUS value so we can convert it to its value in FAHRENHEIT");
+			c= obj.nextDouble();
+			
+			ProjTemp classFahrenheit = new ProjTemp();
+			Far= classFahrenheit.findFah(c);
+			System.out.println( "The value " +c+ " CELCIUS is equal to "+ Far + "\u00B0" + "F");
+		
+			
+			//if user wants to convert temperature to FAHRENHEIT
+		}else if(input==2){
+			System.out.println("Please enter FAHRENHEIT value so we can convert it to its value in CELCIUS");
+			f= obj.nextDouble();
+			
+			ProjTemp classFahrenheit = new ProjTemp();
+			Cel= classFahrenheit.findCel(f);
+			System.out.println( "The value " +f+ " FAHRENHEIT is equal to "+ Cel + "\u00B0" + "C");
+		}
+			else {
+				System.out.println(" ERROR !! INVALID INPUT! ");
+				
+			}
+			
+			obj.close();
+	}
+		
+			
+	
+			public double findFah(double tF) {
+		
+				double tempF= ((tF -32) *5)/9;
+				return tempF;
+		
+	
+			}
+		
+			public double findCel(double tC) {
+				
+				double tempC= (tC* 1.8) + 32;
+				return tempC;
+		
+			
+			}
+
+}
