@@ -1,0 +1,72 @@
+		/*
+		pseudo code for days
+
+		take input from user
+		if user say 1 then its Monday
+		if user say 2 then its Tuesday
+		if user say 3 then its Wed
+		if user say 4 then its Thurs
+		if user say 5 then its Fri
+		if user say 6 then its Sat
+		if user say 7 then its Sun		 
+
+		*/
+		    
+import java.util.Scanner;   // Import scanner
+public class SevenDays{
+
+	public static void main (String[] args) {
+		// TODO Auto-generated method stub
+		    
+		        Scanner object = new Scanner(System.in);  // Create object for scanner
+		        
+		        // Message to user
+		        System.out.println("Please enter a day: ");
+		        
+		        int day = object.nextInt();   // read from user i/p
+		        
+		        switch(day) {
+		       
+		          case 1:   // day==1 
+		           System.out.println("Mon");
+		          break;
+		          
+		          case 2:   // day==2
+		              System.out.println("Tue");
+		          break;
+		          
+		          case 3:   // day==3
+		              System.out.println("Wed");
+		          break;
+		          
+		          case 4:   // day==4
+		              System.out.println("Thu");
+		          break;
+		          
+		          case 5:   // day==5
+		              System.out.println("Fri");
+		          break;
+		          
+		          case 6:   // day==5
+		              System.out.println("Sat");
+		          break;
+		          
+		          case 7:   // day==5
+		              System.out.println("Sun");
+		          
+		          
+		          break;
+		          default:
+		              System.out.println("Not a valid day!!");
+		       
+		       }
+		        
+		             
+		        
+		     
+		    }
+		
+
+	}
+
+
