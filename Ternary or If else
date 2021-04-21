@@ -1,0 +1,13 @@
+
+public class TernaryOperator {
+
+	public static void main(String[] args) {
+		int grade = 80;
+		String status= "";
+		
+		status = (grade >= 80)?"PASSED" : "FAILED";
+		System.out.println(status);
+
+	}
+
+}
