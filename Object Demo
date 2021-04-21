@@ -1,0 +1,38 @@
+
+public class MyObjectDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		 // Creating object ....
+        MyObjectDemo Object = new MyObjectDemo();
+        
+        // This method return us string 
+        // Storing return from print to String variable any
+        
+        String any = Object.print();
+        
+       System.out.println("RETURN FROM METHOD PRINT IS:"+any);
+    
+        double b = Object.returnAnyDouble();
+        System.out.println("RETURN FROM METHOD RETURN DOUBLE  PRINT IS:"+b);
+    
+    }
+        
+    // Method is to return  "helloworld"
+    
+    public String print() {
+        
+        return "helloworld";
+    }
+    
+    // Method is to return "double"
+    
+    public double returnAnyDouble() {
+        return 2.0;
+    }
+
+ 
+
+
+}
