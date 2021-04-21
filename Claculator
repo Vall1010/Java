@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class MyCalc {
+
+	public static void main(String[] args) {
+		
+		char formula;
+	    int x, y, answer;
+
+	    // create Scanner object 
+	    Scanner myObj = new Scanner(System.in);
+
+	    // ask users to enter operator
+	    System.out.println("Choose one : +, -, *, or /");
+	    formula = myObj.next().charAt(0);
+
+	    // ask users to enter numbers
+	    System.out.println("Please key in 1st number");
+	    x = myObj.nextInt();
+
+	    System.out.println("Please key in 2nd number");
+	    y = myObj.nextInt();
+
+	    switch (formula) {
+
+	      // performs addition
+	      case '+':
+	        answer = x + y;
+	        System.out.println(x + " + " + y + " = " + answer);
+	        break;
+
+	      // performs subtraction
+	      case '-':
+	        answer = x - y;
+	        System.out.println(x + " - " + y + " = " + answer);
+	        break;
+
+	      // performs multiplication 
+	      case '*':
+	        answer = x * y;
+	        System.out.println(x + " * " + y + " = " + answer);
+	        break;
+
+	      // performs division 
+	      case '/':
+	        answer = x / y;
+	        System.out.println(x + " / " + y + " = " + answer);
+	        break;
+
+	      default:
+	        System.out.println("Invalid operator!");
+	        break;
+	    }
+
+	  }
+	}
