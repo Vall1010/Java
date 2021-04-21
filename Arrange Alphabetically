@@ -1,0 +1,36 @@
+/*
+ Found and Used util arrays from web 
+ 
+ Program asks for words in string
+ User input string to program
+ Program displays the alphabetical order of the strings in the word
+ using arrays.sort
+ */
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class AlphabeticalStrings {
+
+	public static void main(String[] args) {
+		
+		
+		
+		Scanner abc = new Scanner(System.in);
+	      System.out.println("Enter a string value: ");
+	      
+	      String t="asd";
+	      
+	      System.out.println("This is "+ t+1);
+	      
+	      String str = abc.nextLine();
+	      char charArray[] = str.toCharArray();
+	      Arrays.sort(charArray);
+	      System.out.println(new String(charArray));
+	   }
+	
+		
+
+	}
+
+
