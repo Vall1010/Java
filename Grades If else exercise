@@ -1,0 +1,37 @@
+/*
+ * With honors Psuedo code
+ * If student has a grade of equal or greater than 90 then 
+ * he/she is with honors
+ * 
+ * take input
+ * if grade are >=90
+ *if => true
+ *else false 
+ */
+
+import java.util.Scanner;
+//to import scanner 
+
+public class IfApp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		Scanner object= new Scanner(System.in);
+		//Create objects 
+		System.out.println("Please enter your grade:");
+		
+		int grade= object.nextInt();  // read from user input
+		
+		if (grade>=90) {
+			System.out.println("Congratulations!! You are an Honor student");	
+		}else {
+			System.out.println(" Keep doing your best! ");
+			
+		}
+		
+		object.close();
+	}
+
+}
