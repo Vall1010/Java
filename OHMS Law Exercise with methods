@@ -1,0 +1,128 @@
+/*  
+S:1 Make class name OhmsLaw
+S:2 Define basic variable (Voltage,Current, Resistance, V,I,R), type: double 
+S:3 Input from user to find voltage
+ 	Input from user to find current 
+ 	Input from user to find resistance
+
+S:4 make three methods voltage, current and resistance 
+S:5 create inside that method :
+formula to calculate voltage 
+formula to calculate current 
+formula to calculate resistance
+S:6 Pass v,i, r  as parameter inside method
+S:7 Store them in some double variable
+S:8 Voltage , Current or resistance print them
+
+*/
+
+import java.util.Scanner;
+
+public class OhmsLaw {
+	
+public static void main(String[] args) {
+
+double V,I,R,Voltage,Current,Resistance; // local variable in main
+int calc;
+
+//Scanner object
+Scanner scanObj = new Scanner(System.in);
+
+System.out.println("Please enter 1 To compute for voltage, 2 for current or 3 for resitance: ");
+calc = scanObj.nextInt();
+
+
+switch(calc) {
+//Voltage
+case 1:
+	System.out.println("PLEASE ENTER Current OF Circuit: ");
+	I = scanObj.nextDouble();
+
+	System.out.println("PLEASE ENTER Resistance OF Circuit: ");
+	R = scanObj.nextDouble();
+	
+	OhmsLaw classVol = new OhmsLaw();
+	Voltage=classVol.findVol(I,R);
+
+	System.out.println("Voltage of Circuit IS (I*R): "+Voltage);
+	scanObj.close();
+	
+  break;
+  
+//Current
+case 2:
+	System.out.println("PLEASE ENTER V OF Circuit: ");
+	V = scanObj.nextDouble();
+
+	System.out.println("PLEASE ENTER Resistance OF Circuit: ");
+	R = scanObj.nextDouble();
+	
+	
+	OhmsLaw classCur = new OhmsLaw();
+	Current = classCur.findCur(V, R);
+	System.out.println("Current of Circuit IS (V/R): "+Current);
+	scanObj.close();
+  break;
+  
+//Resistance
+case 3:
+	System.out.println("PLEASE ENTER V OF Circuit: ");
+	V = scanObj.nextDouble();
+
+	System.out.println("PLEASE ENTER Current OF Circuit: ");
+	I = scanObj.nextDouble();
+
+	OhmsLaw classRes = new OhmsLaw();
+	Resistance = classRes.findRes(V, I);
+	System.out.println("Resistnace of Circuit IS (V/I): "+Resistance);
+	
+	scanObj.close();
+	  break;  
+  
+default:
+  // code block
+}
+
+}
+
+// method to find Voltage 
+
+public double findVol(double i, double r) {
+
+double volt= (i*r);
+
+return volt;
+
+
+}
+
+
+
+// method to find Current
+
+public double findCur(double v , double r) {
+
+double current= v/r;
+
+return current;
+
+
+}
+
+
+//method to find Resistance 
+
+public double findRes(double v , double i) {
+
+double resistance= v/i;
+
+return resistance;
+
+
+}
+
+
+
+
+}
+
