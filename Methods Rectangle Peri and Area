@@ -1,0 +1,81 @@
+/* S:1 Make class name rectangle --Done ... by hrishikesh kanabar - Teachers
+hrishikesh kanabar - Teachers8:42 PM
+/*
+S:1 Make class name rectangle --Done
+S:2 Define basic variable (l,w,a,p), type: double --Done
+S:3 Input from user (l,w) -- Done
+S:4 make two method Perimeter and area
+S:5 login inside that method :
+formula to calculate rectangle perimeter i.e. perimeter = 2 * (length + width).
+formula to calculate rectangle area i.e. area = length * width.
+S:6 Pass l, w as parameter inside method
+S:7 Store them in some double variable
+S:8 Area amd permimeter print them
+
+
+
+*/
+
+import java.util.Scanner;
+
+public class Rectangle {
+
+public static void main(String[] args) {
+
+double len,wid,area,peri; // local variable in main
+
+// Scanner object
+Scanner scanObj = new Scanner(System.in);
+
+System.out.println("PLEASE ENTER LENGTH OF RECTANGLE: ");
+len = scanObj.nextDouble();
+
+
+System.out.println("PLEASE ENTER WIDTH OF RECTANGLE: ");
+wid= scanObj.nextDouble();
+
+// Object of class
+Rectangle classObj = new Rectangle();
+
+// Storing perimeter in peri
+peri=classObj.findPeri(len, wid);
+
+// Storing area in area
+
+area = classObj.findArea(len, wid);
+
+System.out.println("AREA OF RECTANGLE IS: "+area);
+System.out.println("PERIMETER OF RECTANGLE IS: "+peri);
+
+scanObj.close();
+System.out.println("Scanner Closed.");
+}
+
+// method to find perimeter
+
+public double findPeri(double l , double w) {
+
+double p= 2*(l+w);
+
+return p;
+
+
+}
+
+// method to find area
+
+// method to find perimeter
+
+public double findArea(double l , double w) {
+
+double a= l*w;
+
+return a;
+
+
+}
+
+
+
+}
+
