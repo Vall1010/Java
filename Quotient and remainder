@@ -1,0 +1,36 @@
+/*
+Java program to find qoutient and remainder
+Program asks numerator 
+User enter numerator
+Program asks denominator
+User enter denominator
+Program displays qoutient and remainder
+*/
+
+
+import java.util.Scanner; 
+ 
+public class QoutientAndRemainder {
+
+	public static void main(String[] args) {
+		 
+		int x,y;
+		  
+		Scanner num= new Scanner (System.in);
+		
+		
+		
+		System.out.println("Please enter Numerator");
+		x= num.nextInt();
+		
+		System.out.println("Please enter denominator");
+		y= num.nextInt();
+		
+		System.out.println("The Qoutient is :" +x/y);
+		
+		System.out.println("The Remainder is:" +x%y);
+		
+		
+	}
+
+}
