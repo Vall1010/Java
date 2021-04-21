@@ -1,0 +1,25 @@
+public class Swapping {
+
+    public static void main(String[] args) {
+
+        int A=1; 
+        int B=2;
+
+        System.out.println("Original order");
+        System.out.println("First number = " + A);
+        System.out.println("Second number = " + B);
+
+        // Value of A is assigned to C
+        int C = A;
+
+        // Value of B is assigned to A
+        A = B;
+
+        // Value of C is assigned to B
+        B= C;
+
+        System.out.println("Swap");
+        System.out.println("First number = " + A);
+        System.out.println("Second number = " + B);
+    }
+}
