@@ -1,0 +1,59 @@
+//This content is in the same package as the class below //
+
+package PACKAGE1;
+/*
+####### ACCESS Levels
+public Other Class:Y Other Package: Y
+private Other Class: N Other Package: N (Same class it self: YES)
+protected Other Class: Y Other Package :N (Same class and other class :YES)
+*/
+public class DemoAccessMod {​​
+public int a=54;
+private int b= 67;
+protected int c=90;
+public static void main(String[] args) {​​
+DemoAccessMod obj = new DemoAccessMod();
+System.out.println(obj.a);
+System.out.println(obj.b);
+System.out.println(obj.c);
+}​​}​​
+
+
+
+#################################################################
+//This content is in the same package as the class above //
+
+
+package PACKAGE1;public class DemoAccessModTwo {​​
+public static void main(String[] args) {​​
+DemoAccessMod obj = new DemoAccessMod();
+System.out.println("Printing form class DemoAccessModTwo A "+obj.a);
+// System.out.println("Printing form class DemoAccessModTwo "+obj.b); // Cannot access b , because b is private variable
+System.out.println("Printing form class DemoAccessModTwo C "+obj.c);
+}​​}​​
+
+#################################################################
+//This content is from different package //
+
+package PACKAGE2; import PACKAGE1.DemoAcc... by hrishikesh kanabar - Teachers
+hrishikesh kanabar - Teachers7:40 PM
+
+package PACKAGE2;
+import PACKAGE1.DemoAccessMod;
+
+
+
+
+
+public class DemoAccessModThree {
+
+public static void main(String[] args) {
+
+DemoAccessMod obj = new DemoAccessMod();
+
+System.out.println("Printing from DemoAccessModThree: "+ obj.a);
+// System.out.println("Printing from DemoAccessModThree: "+ obj.b); // Cannot access b , because b is private variable
+//System.out.println("Printing from DemoAccessModThree: "+ obj.c); // Cannot access c , because c is potected variable
+
+}
+}
