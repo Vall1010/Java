@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class GradeCalculator {
 int Mark;
-int Grade;
-char GradeV;
+char Grade;
+
 
 
 //main method 
@@ -11,8 +11,8 @@ public static void main(String[] args) {
 	GradeCalculator get= new GradeCalculator(1);
 	System.out.println(get.Mark);
 	
-	GradeCalculator Grade= new GradeCalculator('z');
-	System.out.println(Grade.GradeV);
+	GradeCalculator GradeV= new GradeCalculator('z');
+	System.out.println(GradeV.Grade);
 	
 }
 
@@ -48,13 +48,13 @@ if (Mark>=90 && Mark<=100) {
 
 	Scanner constructScan = new Scanner (System.in);
 	System.out.println("Please enter your Equivalent Grade: ");
-	GradeV = constructScan.next().charAt(0);
+	Grade = constructScan.next().charAt(0);
 		
-		if (GradeV=='A' || GradeV=='B' || GradeV=='C') {
+		if (Grade=='A' || Grade=='B' || Grade=='C') {
 			
 			System.out.println("Passed");	
 			
-		}else if (GradeV=='D') {
+		}else if (Grade=='D') {
 			
 			System.out.println("Failed");
 		}
