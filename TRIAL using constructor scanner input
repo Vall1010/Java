@@ -1,0 +1,69 @@
+import java.util.Scanner;
+
+public class GradeCalculator {
+int Mark;
+int Grade;
+char GradeV;
+
+
+//main method 
+public static void main(String[] args) {	
+	GradeCalculator get= new GradeCalculator(1);
+	System.out.println(get.Mark);
+	
+	GradeCalculator Grade= new GradeCalculator('z');
+	System.out.println(Grade.GradeV);
+	
+}
+
+//constructor to get input  
+
+GradeCalculator (int x) {
+Mark = 0;
+
+Scanner constructScan = new Scanner (System.in);
+System.out.println("Please enter your numerical Grade: ");
+Mark = constructScan.nextInt ();
+
+if (Mark>=90 && Mark<=100) {
+	
+	System.out.println("Your Grade is equivalent to A");	
+	
+}else if (Mark>=80 && Mark<=89) {
+	
+	System.out.println("Your Grade is equivalent to B");
+	
+}else if(Mark>=75 && Mark<=79) {
+	
+	System.out.println(" Your Grade is equivalent to C");
+
+}else if(Mark<=74 && Mark>=0) 
+	
+	System.out.println(" Your Grade is equivalent to D ");
+
+}
+
+//Method to Determine Pass or Failed result
+	GradeCalculator(char x) {
+
+	Scanner constructScan = new Scanner (System.in);
+	System.out.println("Please enter your Equivalent Grade: ");
+	GradeV = constructScan.next().charAt(0);
+		
+		if (GradeV=='A' || GradeV=='B' || GradeV=='C') {
+			
+			System.out.println("Passed");	
+			
+		}else if (GradeV=='D') {
+			
+			System.out.println("Failed");
+		}
+	
+		
+	}
+
+}
+
+
+    
+
