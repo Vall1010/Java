@@ -1,0 +1,66 @@
+/*
+S:1 Create a class name GradeCalculator
+S:2 Define basic variable Mark -- int/double, grade---String
+S:3 Constructor to intialize two default grades "Pass" and "Fail"
+S:4 Constructor for user input (Scanner i/p from user)
+S:5 Method calculate grade (if...esle logic), return grade in string
+S:6 Print grade
+
+*/
+import java.util.Scanner;
+public class GradeCalClass {
+double mark;
+String pass,fail;
+// Constructor
+// default value to pass, and fail variable
+// inside constructor i will get user input
+GradeCalClass(){
+pass="PASS";
+fail="FAIL";
+// Scanner to take uyser i/p
+Scanner objScan = new Scanner(System.in);
+// message to user
+System.out.println("PLEASE ENETR YOUR MARKS: ");
+mark = objScan.nextDouble();
+
+}
+
+ public static void main(String[] args) {
+/*
+className: GradeCalClass
+objectName:objGradeCal
+Keyword: new
+contructor: GradeCalClass()
+*/
+GradeCalClass objGradeCal = new GradeCalClass();
+// pass ="PASS"
+// fail="Fail"
+// user i/p
+// mark = 75
+// variable finalGrade = objectName.MethodName(mark=75)
+String finalGrade= objGradeCal.getGradesFromMarks(objGradeCal.mark);
+// finalGrade= A
+System.out.println("Your final grades are: "+finalGrade);
+}
+// method for logic grade calculation
+// mark=75
+public String getGradesFromMarks(double marks) {
+String grade = null;
+if(marks<=59) {
+
+grade="fail";
+}else if(marks>=60 && marks<=70) {
+grade= pass+ " B";
+}else if (marks>=71 && marks<=80) {
+grade=pass+ " A";
+}else if (marks>=81 && marks<=100) {
+grade= pass+ " A+";
+}else {
+grade="Invalid";
+}
+
+return grade; // grade = A
+
+}
+
+}
