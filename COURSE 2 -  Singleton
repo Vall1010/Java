@@ -1,0 +1,33 @@
+//CLASS NAME
+public class SingletonPrac {
+
+	//PRIVATE TO AVOID DUPLICATE INSTANCE 
+	private static SingletonPrac instance;
+	
+	//CONSTRUCTOR 
+	private SingletonPrac() {
+		
+	}
+	
+	
+	//CREATE method calling/returning  instance  
+	public static SingletonPrac getInstance() {
+		if (instance==null) {
+			instance = new SingletonPrac();		
+		}
+		return instance;
+		
+		
+	}
+public static void main (String [] args) {
+	SingletonPrac instance = new SingletonPrac();	
+	
+	SingletonPrac instance2 = new SingletonPrac();
+	
+	System.out.println(instance.getInstance());
+	System.out.println(instance2.getInstance());
+}
+	
+		
+	}
+
