@@ -1,0 +1,100 @@
+/*Grading System using Switch , if else and constructor 
+User inputs grade value 
+program returns the grade value and if student passed or failed and the range where the grade is in.
+Note: Numeric values and equivalent are only for illustration purposes of the program concept.
+*/
+
+
+
+		//scanner import 
+import java.util.Scanner;
+public class SwitchGradeCalc {
+
+			
+		//initialize variables 
+			double grade;
+			String failed,passed,A,B,C,Error;
+			
+			//Constructor from class 
+SwitchGradeCalc ()
+			{
+				failed="You Failed - Please Study Harder";
+				passed="Congratulations! you Passed!!";
+				 
+				A = " Range: 90-100";
+				B =" Range: 85-94";
+				C =" Range: 75-84";
+				Error = "\"Please enter a valid input\"";
+				
+				Scanner inputObj= new Scanner (System.in);
+				System.out.println("Please input numerical grade: ");
+				grade=inputObj.nextDouble();
+				
+			
+			}
+			//Main Method where methods are executed and user input 
+			public static void main(String[] args) {
+				
+				SwitchGradeCalc obj = new SwitchGradeCalc ();
+				String grade = obj.gradeValue(obj.grade);
+				
+				
+				switch (grade) {
+
+			      // For Range A 
+			      case "A":
+			    
+			        System.out.println(obj.passed +"\n"+  obj.A  +"\n"+  "Your grade is: " + grade);
+			        break;
+			        
+			     // For Range B
+			      case "B":
+			    	  System.out.println(obj.passed +"\n"+  obj.B  +"\n"+  "Your grade is: " + grade);
+			        break;
+
+			      // For Range C  
+			      case "C":
+			    	  System.out.println(obj.passed +"\n"+  obj.C  +"\n"+  "Your grade is: " + grade);
+			        break;
+
+			     // For Failed  
+			      case "Failed":
+			        System.out.println(obj.failed+grade);
+			        break;
+			     // For Invalid Range 
+			      default:
+			        System.out.println(obj.Error);
+			        break;
+			    }
+				
+				}
+
+
+			//method to determine value of grade 
+			public String gradeValue(double mark) 
+			{
+				String grade;
+				if (mark>= 0 && mark <=74)
+					grade= "Failed";
+				
+				else if (mark>=75 && mark <85)
+					grade = "C";
+				
+				else if (mark>=85 && mark <95)
+					grade = "B";
+				
+				else if (mark>=95 && mark <=100)
+					grade = "A";
+				
+				else if (mark<-1)
+					grade = "\"Please enter a valid Input\"";
+				else {
+					grade = Error; 
+				}	
+				
+				return grade;
+			}
+				 
+			
+			
+		}
