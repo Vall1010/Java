@@ -1,0 +1,71 @@
+//scanner import 
+import java.util.Scanner;
+
+public class GradeCalcV2 {
+	
+//initialize variables 
+	int grade;
+	String fail;
+	String pass;
+	String ifError;
+	
+	//Constructor from class 
+	GradeCalcV2 ()
+	{
+		fail="Fail";
+		pass="Pass";
+		ifError=null; //gets value if  mark not in range 
+		
+		
+		Scanner inputObj= new Scanner (System.in);
+		System.out.println("Please enter your mark: ");
+		grade=inputObj.nextInt();
+		inputObj.close();
+	
+	}
+	//Main Method where methods are executed 
+	public static void main(String[] args) {
+		
+		GradeCalcV2 obj = new GradeCalcV2 ();
+		String grade = obj.gradeValue(obj.grade);
+		
+		
+		if(obj.ifError==null && grade !="Failed")
+			System.out.println(obj.pass + " !" + " your grade is :" + grade);
+		
+		else if(obj.ifError==null && grade =="Failed")
+			System.out.println(obj.fail);
+		else {
+			System.out.println(obj.ifError);
+		}
+
+
+	}
+
+	//method to determine value of grade 
+	public String gradeValue(int mark) 
+	{
+		String grade;
+		if (mark>= 0 && mark <60)
+			grade= "Failed";
+		
+		else if (mark>=60 && mark <74)
+			grade = "D";
+		else if (mark>=75 && mark <85)
+			grade = "C";
+		else if (mark>=85 && mark <90)
+			grade = "B";
+		else if (mark>=90 && mark <100)
+			grade = "A";
+		else {
+			grade = "";
+			ifError= "Invalid Grade Input";
+		}
+		
+		return grade;
+	}
+		 
+	
+	
+}
+
