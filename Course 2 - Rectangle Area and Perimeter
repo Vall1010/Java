@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+public class Rectangle {
+
+public static void main(String[] args) {
+
+double len,wid,area,peri; // local variable in main
+
+// Scanner object
+Scanner scanObj = new Scanner(System.in);
+
+System.out.println("PLEASE ENTER LENGTH OF RECTANGLE: ");
+len = scanObj.nextDouble();
+
+
+System.out.println("PLEASE ENTER WIDTH OF RECTANGLE: ");
+wid= scanObj.nextDouble();
+
+// Object of class
+Rectangle classObj = new Rectangle();
+
+// Storing perimeter in peri
+peri=classObj.findPeri(len, wid);
+
+// Storing area in area
+
+area = classObj.findArea(len, wid);
+
+System.out.println("AREA OF RECTANGLE IS: "+area);
+System.out.println("PERIMETER OF RECTANGLE IS: "+peri);
+
+scanObj.close();
+System.out.println("Scanner Closed.");
+}
+
+// method to find perimeter
+
+public double findPeri(double l , double w) {
+
+double p= 2*(l+w);
+
+return p;
+
+
+}
+
+// method to find area
+
+// method to find perimeter
+
+public double findArea(double l , double w) {
+
+double a= l*w;
+
+return a;
+
+
+}
+
+
+
+}
