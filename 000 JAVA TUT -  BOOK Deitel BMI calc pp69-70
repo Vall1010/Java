@@ -1,61 +1,96 @@
+//import scanner
 import java.util.Scanner;
 
+//class
 public class Tut1Adding {
-
+	
+	//main method start
 	public static void main(String[] args) {
+		
+		//Declare Variables to be used
+		double input,K,M,P,I,BMI1, BMI2;
+		String cond1, cond2;
 
-		double input;
-
+		//scanner 
 		Scanner obj = new Scanner(System.in);
+		
+		//Getting input from user 
 		System.out.println(
 				"Welcome to our BMI calculator \n Please choose \"1\" for BMI using Kilo and Meters\n or choose \"2\" to use Pounds and inches ");
+
+		//storing input from user 
 		input = obj.nextDouble();
 
+		//input 1 if user wants to use kilos and meters
 		if (input == 1) {
-
+			
+			//asking input from user for weight in kilos 
 			System.out.println("Please enter weight in Kilos");
-			double K = obj.nextDouble();
+			
+			//storing value of weight
+			K = obj.nextDouble();
 
+			//asking input from user for height in meters 
 			System.out.println("Please enter height in Meters");
-			double M = obj.nextDouble();
+			//storing value of height   
+			M = obj.nextDouble();
 
+			//creating class instance  using new variable BMIK
 			Tut1Adding BMIK = new Tut1Adding();
-			double BMI1 = BMIK.bmiPound(K, M);
+			
+			//using method bmiPound to get BMI from kilo and meters and passing the 2 parameters in the method 
+			BMI1 = BMIK.bmiPound(K, M);
 
+			//creating class instance  using new variable Cond to get the correspoding condition of the value of BMI 
 			Tut1Adding Cond = new Tut1Adding();
+			
+			//using a new variable "Cond1" to store the return "Cond" of method bmiVal
 			String Cond1 = Cond.bmiVal(BMI1);
-
+			
+			//Printing value of BMI and its the corresponding condition  
 			System.out.println("BMI is:\n " + BMI1 +  " \nYou are:\n " + Cond1);
 
+			//input 2  if user wants to use Pounds and Inches
 		} else if (input == 2) {
-
+			//Getting weight input from user in pounds
 			System.out.println("Please enter weight in Pounds");
-			double P = obj.nextDouble();
-
+			//storing value entered to Variable "P"
+			P = obj.nextDouble();
+			
+			//Getting height input from user in inches 
 			System.out.println("Please enter height in Inches");
-			double I = obj.nextDouble();
+			//storing value entered to Variable "I"
+			I = obj.nextDouble();
 
+			//Using an instance of the class to create new variable "BMIP"
 			Tut1Adding BMIP = new Tut1Adding();
-			double BMI2 = BMIP.bmiKil(P, I);
+			//Using the method bmiKili and passing two variables of the method to get BMI using user input and the bmiKili method 
+			BMI2 = BMIP.bmiKil(P, I);
 
+			//Using an instance of the class to create new variable "Condi"
 			Tut1Adding Condi = new Tut1Adding();
+			//Using new string variableCond2 to store the output of the method bmiVal with input from value of BMI2 
 			String Cond2 = Condi.bmiVal(BMI2);
 
+			//printing BMI2 and corresponding value 
 			System.out.println("BMI is:\n " + BMI2 + " \nYou are:\n " + Cond2);
 
 		} else {
-
+			//if user does not choose 1 or 2 then error message will be the output
 			System.out.println("Please enter valid values");
 		}
-
+		//closing object of scanner
 		obj.close();
 
-	}
+	}//end of main method 
 
+	//method to get the value of condition 
 	public String bmiVal(double Val) {
-
+		
+		//initialize variable string  "condition" 
 		String condition = "";
 
+		//creating conditional statment to determine value of string "condition"
 		if (Val < 18.5) {
 			condition = "Underweight";
 
@@ -67,22 +102,31 @@ public class Tut1Adding {
 		} else if (Val > 30) {
 			condition = "Obese";
 		}
+		
+		//used to return condition - this will be the output of the methodbmiVal 
 		return condition;
 
-	}
+	}//end of method bmiVal
 
+	
+	//method to compute bmi with kilo and meter
 	public double bmiPound(double WKilo, double HeightM)
 
 	{
-
+		//formula 
 		double bmiP = WKilo / (HeightM * HeightM);
+		//the output of the method
 		return bmiP;
 
-	}
+	}//end of method bmiPound
 
+	
+	//method to compute bmi in pounds and inches
 	public double bmiKil(double WPounds, double HeightIn) {
 
+		//formula 
 		double bmiK = (WPounds / (HeightIn * HeightIn) * 703);
+		//output of method bmiKil
 		return bmiK;
-	}
+	}//end of method bmiKil
 }
