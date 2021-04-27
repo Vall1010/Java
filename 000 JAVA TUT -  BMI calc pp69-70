@@ -1,0 +1,88 @@
+import java.util.Scanner;
+
+public class Tut1Adding {
+
+	public static void main(String[] args) {
+
+		double input;
+
+		Scanner obj = new Scanner(System.in);
+		System.out.println(
+				"Welcome to our BMI calculator \n Please choose \"1\" for BMI using Kilo and Meters\n or choose \"2\" to use Pounds and inches ");
+		input = obj.nextDouble();
+
+		if (input == 1) {
+
+			System.out.println("Please enter weight in Kilos");
+			double K = obj.nextDouble();
+
+			System.out.println("Please enter height in Meters");
+			double M = obj.nextDouble();
+
+			Tut1Adding BMIK = new Tut1Adding();
+			double BMI1 = BMIK.bmiPound(K, M);
+
+			Tut1Adding Cond = new Tut1Adding();
+			String Cond1 = Cond.bmiVal(BMI1);
+
+			System.out.println("BMI is:\n " + BMI1 +  " \nYou are:\n " + Cond1);
+
+		} else if (input == 2) {
+
+			System.out.println("Please enter weight in Pounds");
+			double P = obj.nextDouble();
+
+			System.out.println("Please enter height in Inches");
+			double I = obj.nextDouble();
+
+			Tut1Adding BMIP = new Tut1Adding();
+			double BMI2 = BMIP.bmiKil(P, I);
+
+			Tut1Adding Condi = new Tut1Adding();
+			String Cond2 = Condi.bmiVal(BMI2);
+
+			System.out.println("BMI is:\n " + BMI2 + " \nYou are:\n " + Cond2);
+
+		} else {
+
+			System.out.println("Please enter valid values");
+		}
+
+		obj.close();
+
+	}
+
+	public String bmiVal(double Val) {
+
+		String condition = "";
+
+		if (Val < 18.5) {
+			condition = "Underweight";
+
+		} else if (Val >= 18.5 && Val <= 24.9) {
+			condition = "Normal";
+
+		} else if (Val >= 25 && Val <= 29.9) {
+			condition = "Overweight";
+		} else if (Val > 30) {
+			condition = "Obese";
+		}
+		return condition;
+
+	}
+
+	public double bmiPound(double WKilo, double HeightM)
+
+	{
+
+		double bmiP = WKilo / (HeightM * HeightM);
+		return bmiP;
+
+	}
+
+	public double bmiKil(double WPounds, double HeightIn) {
+
+		double bmiK = (WPounds / (HeightIn * HeightIn) * 703);
+		return bmiK;
+	}
+}
