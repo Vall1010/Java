@@ -1,0 +1,92 @@
+/*Grading System V3
+User inputs grade value 
+program returns if student passed or failed, the range where the grade is in and the corresponding grade value .
+
+ Note: Numeric values have been updated to range from A+ to C , failed and error
+ */
+
+//scanner import 
+import java.util.Scanner;
+
+public class GradeCalcV3 {
+
+//initialize variables 
+	double grade;
+	String failed, passed, Aplus, A, B, C, Error;
+
+	// Constructor from class
+	GradeCalcV3() {
+		failed = "Sorry You Failed ";
+		passed = "Congratulations! you Passed!!";
+		Error = "\"Please enter a valid input\"";
+
+		Aplus = " Range: 91-100";
+		A = " Range: 81-90";
+		B = " Range: 71-80";
+		C = "Range: 60-70";
+
+		Scanner inputObj = new Scanner(System.in);
+		System.out.println("Please input numerical grade: ");
+		grade = inputObj.nextDouble();
+
+		inputObj.close();
+	}
+
+	// Main Method where methods are executed
+	public static void main(String[] args) {
+
+		GradeCalcV3 obj = new GradeCalcV3();
+		String grade1 = obj.gradeValue(obj.grade);
+
+		if (grade1 == "C")
+			System.out.println(
+					obj.passed + "\n" + "Your grade is within the :" + obj.C + "\n" + "Grade value is: " + grade1);
+
+		else if (grade1 == "B")
+			System.out.println(
+					obj.passed + "\n" + "Your grade is within the :" + obj.B + "\n" + "Grade value is: " + grade1);
+
+		else if (grade1 == "A")
+			System.out.println(
+					obj.passed + "\n" + "Your grade is is within the :" + obj.A + "\n" + "Grade value is: " + grade1);
+
+		else if (grade1 == "A+")
+			System.out.println(obj.passed + "\n" + "Your grade is is within the :" + obj.Aplus + "\n"
+					+ "Grade value is: " + grade1);
+
+		else if (grade1 == "Failed")
+			System.out.println(obj.failed);
+
+		else {
+
+			System.out.println(obj.Error);
+		}
+
+	}
+
+	// method to determine value of grade
+	public String gradeValue(double mark) {
+		String grade;
+		if (mark >= 0 && mark <= 59)
+			grade = "Failed";
+
+		else if (mark >= 60 && mark <= 70)
+			grade = "C";
+
+		else if (mark >= 71 && mark < 80)
+			grade = "B";
+
+		else if (mark >= 80 && mark <= 90)
+			grade = "A";
+
+		else if (mark >= 91 && mark <= 100)
+			grade = "A+";
+
+		else {
+			grade = Error;
+		}
+
+		return grade;
+	}
+
+}
