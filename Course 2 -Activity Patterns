@@ -1,0 +1,136 @@
+
+//Pattern 1 
+##############
+
+import java.util.Scanner;
+
+public class PatternOne {
+
+	public static void main(String[] args) {
+		Scanner scObj = new Scanner(System.in);
+		System.out.println("HOW MANY ROWS YOU WANT TO PRINT?: ");
+		int rows = scObj.nextInt();
+
+		for (int i = 1; i <= rows; i++) {
+
+			for (int j = 1; j <= i; j++) {
+				System.out.print(j + " ");
+			}
+			System.out.println();
+		}
+	}
+
+}
+
+
+//Pattern 2
+##############
+
+import java.util.Scanner;
+
+public class PatternTwo {
+
+	public static void main(String[] args) {
+		Scanner scObj = new Scanner(System.in);
+		System.out.println("HOW MANY ROWS YOU WANT TO PRINT?: ");
+		int rows = scObj.nextInt();
+
+		
+		
+		
+		
+		
+		for (int i = 1; i <= rows; i++) {
+
+			for (int j = 1; j <= i; j++) {
+				System.out.print(j + " ");
+			}
+			System.out.println();
+		}
+
+		
+	}
+
+}
+
+
+//Pattern 3
+##############
+
+import java.util.Scanner;
+
+public class PatternThree {
+
+	public static void main(String[] args) {
+		Scanner scObj = new Scanner(System.in);
+		System.out.println("HOW MANY ROWS YOU WANT TO PRINT?: ");
+		int rows = scObj.nextInt();
+
+		for (int i = rows; i >= 1; i--) {
+
+			for (int j = 1; j <= i; j++) {
+				System.out.print(j + " ");
+			}
+			System.out.println();
+		}
+	}
+
+}
+
+
+
+//Pattern 4
+##############
+
+
+import java.util.Scanner;
+
+public class PatternFour {
+
+	public static void main(String[] args) {
+		Scanner scObj = new Scanner(System.in);
+		System.out.println("HOW MANY ROWS YOU WANT TO PRINT?: ");
+		int rows = scObj.nextInt();
+
+		
+		for (int i = rows; i >= 1; i--) {
+
+			for (int j = 1; j <= i; j++) {
+				System.out.print(j + " ");
+			}
+			System.out.println();
+		}
+		
+		for (int i = 1; i <= rows; i++) {
+
+			for (int j = 1; j <= i; j++) {
+				System.out.print(j + " ");
+			}
+			System.out.println();
+		}
+
+	}
+
+}
+
+//Pattern 5
+##############
+
+import java.util.Scanner;
+
+public class PatternFive {
+	public static void main(String[] args) {
+		Scanner scObj = new Scanner(System.in);
+		System.out.println("HOW MANY ROWS YOU WANT TO PRINT?: ");
+		int rows = scObj.nextInt();
+
+		for (int i = 1,p=1; i <= rows; i++,p++) {
+
+			for (int j = 1; j <= i; j++) {
+				System.out.print(p + " ");
+			}
+			System.out.println();
+		}
+	}
+
+}
