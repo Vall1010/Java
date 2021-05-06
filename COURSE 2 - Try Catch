@@ -1,0 +1,32 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class TryCatchInputMismatch {
+
+	public static void main(String[] args) {
+		int a= 0;
+		int b= 0;
+		int c= 0;
+		
+		Scanner objScan = new Scanner(System.in);
+	
+		
+
+		try {
+			System.out.print("Please enter first variable: ");
+			a = objScan.nextInt();
+			System.out.print("Please enter second  variable: ");
+			b = objScan.nextInt();
+			
+			c=a+b;
+
+		} catch (Exception obj) {
+			// how to use InputMismatchException
+			System.out.print("Error!! Please enter valid integer! ");
+			System.out.print("Please enter valid string" + obj.getMessage());
+
+		}
+		System.out.print("The number entered is: " + c);
+	}
+
+}
