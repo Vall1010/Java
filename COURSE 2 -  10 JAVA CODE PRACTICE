@@ -1,0 +1,495 @@
+MCIT – JAVA FULL STACK 
+ABEL PERCIVALL SILAO 
+
+
+10 PRACTICE ACTIVITIES – INTRO TO JAVA CORE
+
+1.) Write a program to print  to find Fibonacci series in java
+1 1 2 3 5 8 13 ……..
+Adding two variables from what is at the back 
+
+2.) Write a program in java to find number is prime or not
+Prime number are number is number divided by 1 and itself
+
+3.) Write a program in java to say number is palindrome or not
+Example : 121 is palindrome because reverse of it is same
+
+4.)Write program to do reverse of string in java.
+User  gives ”hey ” you should print ”yeh”
+
+5.) Write a program in java to check number is Armstrong or not
+For example : 153 is Armstrong because 1+125+27 =153   (Cube of each digit is equal to number itself)
+
+6.) Write a program in java to remove duplicate from array.
+
+7.)Write program to count letter (Characters) in strings.
+
+8.) Write program to find letter entered by user is capital or small.
+
+9.) Write program in java to find letter in consonant or Vowel.
+
+10.) Write program to print ”FLOYD TRIANGLE”.
+1
+23
+456
+78910
+11121314
+
+
+ 
+1 - Fibonacci series
+#################
+
+import java.util.Scanner;
+
+public class FibonacciSeries {
+
+	public static void main(String[] args) {
+		int repeat;
+
+		do {
+
+			int input1 = 0;
+
+			Scanner objScan = new Scanner(System.in);
+			System.out.println("Welcome to our Fibonacci series app!!");
+
+			FibonacciSeries mainObj = new FibonacciSeries();
+			int ans = mainObj.CompFab(input1);
+
+			System.out.println(" Continue?(Enter 1 to restart and 2 to exit)");
+			repeat = objScan.nextInt();
+
+		} while (repeat == 1);
+		System.out.println("Thank you for using the app! Have a great day!");
+
+	}
+
+	public int CompFab(int n) {
+
+		int firstNum = 1;
+		int secNum = 1;
+
+		Scanner objScan = new Scanner(System.in);
+		System.out.println("Please enter the length of the series: ");
+		n = objScan.nextInt();
+
+		System.out.println("Fibonacci Series of " + n + " ");
+
+		for (int i = 1; i <= n; i++) {
+			System.out.print(firstNum + ", ");
+
+			int nextNum = firstNum + secNum;
+			firstNum = secNum;
+			secNum = nextNum;
+
+		}
+
+		return n;
+
+	}
+
+}
+
+
+
+
+
+
+
+1 - Fibonacci series - output
+#######################
+
+ 
+ 
+2- Prime or Not
+############
+import java.util.Scanner;
+
+class PrimeOrNot {
+	public static void main(String[] args) {
+
+		Scanner objScan = new Scanner(System.in);
+		System.out.println("Welcome to our Prime or Not app!!");
+
+		System.out.println("Please enter an integer: ");
+		int input = objScan.nextInt();
+		
+		PrimeOrNot obj = new PrimeOrNot();
+		String output =  obj.isPrimeOrNot(input);
+		System.out.println(output );
+	
+		objScan.close();	
+	}
+
+	public static String isPrimeOrNot(int num) {
+		if (num < 0) {
+			return "not valid";
+		}
+		if (num == 0 || num == 1) {
+
+			return "not prime";
+		}
+		if (num == 2 || num == 3) {
+
+			return "prime number";
+		}
+		if ((num * num - 1) % 24 == 0) {
+
+			return "prime";
+		} else {
+			return "not prime";
+
+		}
+	}
+
+}
+2- Prime or Not - Output
+#####################
+
+
+           
+ 
+Palindrome App
+#############
+import java.util.Scanner;
+
+public class Palindrome {
+
+	public static void main(String args[]) {
+
+		Scanner objScan = new Scanner(System.in);
+
+		System.out.println("Please enter a 3 digit number");
+		int n = objScan.nextInt();
+		
+		Palindrome ans = new Palindrome ();
+		int ans1=ans.doCheck(n);
+		
+		
+	}
+
+	public int doCheck(int n) {
+		int r, sum = 0, temp;
+		temp = n;
+		while (n > 0) {
+			r = n % 10; // getting remainder
+			sum = (sum * 10) + r;
+			n = n / 10;
+		}
+		if (temp == sum)
+			System.out.println("palindrome number ");
+		else
+			System.out.println("not palindrome");
+
+		return n;
+	}
+}
+
+Palindrome App-Output
+####################
+
+ 
+
+
+ 
+
+
+Reverse String 
+############
+
+import java.util.Scanner;
+public class ReverseString {
+
+	public static void main(String[] args) {
+		 Scanner sc=new Scanner(System.in);
+		 
+	        System.out.println("Enter the Word you want to see reversed: ");
+	 
+	        String s = sc.nextLine();	 
+	        
+	        
+	        int l = s.length();
+	        
+	        char ch[] = s.toCharArray();
+	        
+	        
+	        
+	        for(int i=l-1; i>=0; i--)
+	        {
+	            System.out.print(ch[i]);
+	        }
+	    }
+	}
+
+
+Reverse String -Output
+###################
+ 
+ 
+Armstrong
+#########
+
+import java.util.Scanner;
+
+public class Armstrong {
+
+	public static void main(String[] args) {
+
+		Scanner objScan = new Scanner(System.in);
+		System.out.println("Please a 3 digit number to find if its an Armstrong number:");
+		int number = objScan.nextInt();
+
+		if (isArmStrong(number)) {
+			System.out.println("Number : " + number + " is an Armstrong number");
+
+		} else {
+			System.out.println("Number : " + number + " is not an Armstrong number");
+		}
+	}
+
+	private static boolean isArmStrong(int number) {
+		int result = 0;
+		int orig = number;
+		while (number != 0) {
+			int remainder = number % 10;
+			result = result + remainder * remainder * remainder;
+			number = number / 10;
+		}
+		if (orig == result) {
+			return true;
+		}
+		return false;
+	}
+}
+
+
+Armstrong-Output
+################
+ 
+
+ 
+
+
+
+
+
+
+Remove Duplicate in Array
+######################
+
+public class RemoveDuplicate {
+
+	public static void main(String[] args) {
+		
+        int [] a = new int [] {1,10,20,1,3,510,20,8,8,3,7,9,10,45,67,90,10,5,4};   
+          
+        System.out.println("The following values have Duplicate elements in given array: ");  
+
+        for(int i = 0; i < a.length; i++) {  
+            for(int x = i + 1; x < a.length; x++) {  
+                if(a[i] == a[x])  
+                    System.out.println(a[x]);  
+            }  
+        }  
+    }  
+}  
+
+
+Remove Duplicate in Array-Output
+#############################
+ 
+ 
+Count characters in String 
+######################
+
+
+import java.util.Scanner;
+
+public class CountLetterOnStrings {
+
+	public static void main(String[] args) {
+
+		Scanner objScan = new Scanner(System.in);
+		System.out.println("Welcome String counter app!!");
+
+		System.out.println("Please enter a string: ");
+		String input = objScan.nextLine();
+
+		CountLetterOnStrings obj = new CountLetterOnStrings();
+		String output = obj.doCount(input);
+		System.out.println(output);
+
+		objScan.close();
+	}
+
+	public String doCount(String x) {
+
+		
+		int stringLength = x.length();
+
+		System.out.println("String length: " + stringLength);
+
+		int stringLengthWithoutSpaces = x.replace(" ", "").length();
+		System.out.println("String length without counting whitespaces: " + stringLengthWithoutSpaces);
+
+		return x;
+
+	}
+
+}
+
+
+Count characters in String -Output
+#############################
+ 
+
+
+Upper case or not
+################
+import java.util.Scanner;
+public class CaseUpperOrNot {
+
+	public static void main(String[] args) {
+		
+		Scanner objScan = new Scanner(System.in);
+		System.out.println("Welcome case checker app!!");
+
+		System.out.println("Please enter a string: ");
+		String input = objScan.nextLine();
+
+		CaseUpperOrNot obj = new CaseUpperOrNot();
+		String output = obj.caseCheck(input);
+		System.out.println(output);
+
+		objScan.close();
+
+	}
+
+	public String caseCheck(String x) {
+
+		
+		if (Character.isUpperCase(x.charAt(0))) {
+			System.out.println("The String is in Uppercase");
+		} else {
+			System.out.println("The String is in Lowercase");
+		}
+		return x;
+
+	}
+
+}
+
+Upper case or not- Output
+######################
+
+        
+ 
+Consonant or Vowel
+#################
+
+import java.util.Scanner;
+
+public class ConsonantOrVowel {
+
+	public static void main(String[] args) {
+
+		Scanner objScan = new Scanner(System.in);
+		System.out.println("Welcome Consonant or Vowel app!!");
+
+		System.out.println("Please enter a letter: ");
+		char input = objScan.next().charAt(0);
+
+		ConsonantOrVowel obj = new ConsonantOrVowel();
+		char output = obj.consOrV(input);
+		System.out.println(output);
+
+		objScan.close();
+
+	}
+
+	public char consOrV(char x) {
+
+		if (x == 'a' || x == 'e' || x == 'i' || x == 'o' || x == 'u')
+			System.out.println(x + " is vowel");
+		else
+			System.out.println(x + " is consonant");
+
+		return x;
+
+	}
+
+}
+
+
+
+Consonant or Vowel
+#################
+      
+
+
+
+ 
+Floyd Triangle
+#############
+
+import java.util.*;
+
+public class FloydTri {
+
+	public static void main(String[] args) {
+	
+		Scanner objScan = new Scanner(System.in);
+		System.out.println("Welcome to our Floyd Triangle app!!");
+
+		System.out.println("Please enter an integer: ");
+		int input = objScan.nextInt();
+		
+		FloydTri obj = new FloydTri();
+		int output =  obj.doFtri(input);
+		System.out.println(output );
+	
+		objScan.close();			
+
+	}
+
+	public int doFtri(int n) {
+
+		// No of rows to be printed
+		
+
+		// Creating and initializing variable for
+		// rows, columns and display value
+		int i, j, k = 1;
+
+		// Nested iterating for 2D matrix
+		// Outer loop for rows
+		for (i = 1; i <= n; i++) {
+
+			// Inner loop for columns
+			for (j = 1; j <= i; j++) {
+
+				// Printing value to be displayed
+				System.out.print(k + "  ");
+
+				// Incremeting value displayed
+				k++;
+			}
+
+			// Print elements of next row
+			System.out.println();
+		}
+
+		return n;
+
+	}
+
+}
+
+
+
+Floyd Triangle
+#############
+
+ 
+
