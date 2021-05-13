@@ -1,0 +1,108 @@
+import java.util.*;
+
+public class AppClass {
+
+	List<String> masterList = new ArrayList();
+
+	static AppClass objAppClass = new AppClass();
+
+	public static void main(String[] args) {
+
+		String i = null;
+
+		int taskOperationNumber = 0;
+
+		do {
+
+			Scanner objScanFortaskOperationNumber = new Scanner(System.in);
+			System.out.println(
+					" >PLEASE ENTER 1 FOR CREATING TASK, " + " \n >PLEASE ENTER 2 FOR REMOVE TASK FROM THE LIST,"
+							+ " \n >PLEASE ENTER 3 FOR UPDATE TASK FROM LIST,"
+							+ " \n >PLEASE ENTER 4 FOR PRINTING TASK FROM LIST: ");
+			try {
+				taskOperationNumber = objScanFortaskOperationNumber.nextInt();
+			} catch (Exception e) {
+				System.out.println("PLEASE ENTER VLAID INTEGER ONLY");
+			}
+			switch (taskOperationNumber) {
+			case 1:
+
+				System.out.println("YOU ARE CREATING TASK........");
+				Scanner objScanForCreateTask = new Scanner(System.in);
+				System.out.println("PLEASE ENTER TASK TO CREATE: ");
+
+				String taskToBeCreated = objScanForCreateTask.nextLine();
+
+				objAppClass.createTask(taskToBeCreated);
+
+				break;
+			case 2:
+// remove our task from list / remove all
+				System.out.println("YOU ARE REMOVING TASK........");
+				break;
+			case 3:
+// update our task from list
+				System.out.println("YOU ARE UPDATING TASK........");
+				break;
+			case 4:
+// print all task from list
+				System.out.println("YOU ARE PRINTING ALL TASK........");
+// calling method for printing all task
+// I was creating object here
+				objAppClass.printTask(objAppClass.masterList);
+				break;
+
+			default:
+				System.out.println("WARNING: PLEASE INPUT VALID OPERATION NUMBER FOR TASK");
+
+				Scanner objScan = new Scanner(System.in);
+				System.out.println("TO EXIT PROGRAM PLEASE TYPE quit or TYPE ANYOTHER WORD: ");
+				i = objScan.next();
+			}
+		} while (!i.equals("quit"));
+
+		System.out.println("Thank you for using to do app");
+
+	}
+
+	public void createTask(String task) {
+
+//Here I created object first
+		objAppClass.masterList.add(task);
+
+	}
+
+	/*
+	 * AM: Public RT: List<String> Name: createTaskWithReturnType Paremeters:String
+	 * task
+	 */
+
+//This method for creating task with return type
+
+	/*
+	 * public List<String> createTaskWithReturnType(String task){
+	 * 
+	 * //list to be return for task creation List<String> listToBeReturn = new
+	 * ArrayList();
+	 * 
+	 * listToBeReturn.add(task);
+	 * 
+	 * return listToBeReturn; }
+	 */
+
+//This method for printing task
+
+	public void printTask(List<String> printMasterList) {
+
+		System.out.println(printMasterList.size());
+
+//each task in printMasterList
+		for (String m : printMasterList) {
+
+			System.out.println(m);
+
+		}
+
+	}
+
+}
