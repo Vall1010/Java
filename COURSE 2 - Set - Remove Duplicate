@@ -1,0 +1,36 @@
+import java.util.*;
+public class SetExample {
+
+
+
+public static void main(String[] args) {
+// Set<Data-type> nameOfVariable = new HashSet();
+// Set<Data-type> nameOfVariable = new HashSet<Data-type>();
+
+// array
+int a[] = {1,10,2,1,3,3,4,5,1,6,7,8,9,5,10,20,10};
+
+// set doesn't store duplicate values
+Set<Integer> noDuplicates = new HashSet<Integer>();
+
+// for each int i in array a
+for (int i :a) {
+
+noDuplicates.add(i);
+
+}
+
+
+// print all elements inside noDuplicate set
+// for each int elements in set noDuplicates
+for (int elements :noDuplicates) {
+
+//System.out.println("Printing unique (not duplicate)elements of set");
+System.out.println(elements);
+
+}
+}
+
+
+
+}
