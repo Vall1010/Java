@@ -1,0 +1,353 @@
+
+import java.util.*;
+public class AdvToDoNew
+{
+	char x;
+	Scanner sc=new Scanner(System.in);
+	//List<String> strList = new ArrayList<String>();   
+	Map<String,List<String>> emailtoTask = new HashMap<String,List<String>>();
+	//List<String> strList = new ArrayList<String>();  
+	//List<String> strListNew = new ArrayList<String>();
+
+	public static void main(String[] args) 
+	{
+
+    	Scanner sc=new Scanner(System.in);
+    	
+    	char x='y',ch;
+    	
+		
+    	AdvToDoNew obj=new AdvToDoNew();
+    	
+    	do
+    	{
+    		
+    		System.out.println("Enter \n"
+    				+ " C for createList  \t"
+    				
+    				+ "A for AccessDetails\t"
+    				
+    				+ "R for RemoveList \t"
+    				+ "D for Display\t");
+    				
+    		System.out.println("Enter Your Choice \n"); 
+    		ch =sc.next().charAt(0);
+    		char ch1=Character.toUpperCase(ch);
+    		switch(ch1)
+    		{
+    			
+    		case 'C':
+    			obj.createList();
+    			break;
+    		case 'A':
+    			obj.accessDetails();
+    			break;
+    		
+    		case 'R':
+    			obj.removeList();
+    			 
+    			break;
+            case 'D':
+            	obj.displayList();
+            	break;
+            
+    		default:
+   			 System.out.println("Invalid entry\n");
+   			 break;
+    			
+    	
+    		
+    	
+    	}
+    		System.out.println("Do you want to Continue with List Operations");
+        	x=sc.next().charAt(0);
+        	}
+    	while(x=='y');
+    	
+    	sc.close();
+    
+       
+
+	}
+	
+	
+	
+	
+	//code to create  MAP .. emai and tasks association
+	 public void createList()
+	 {
+		 char x='y';
+		 do
+		 {
+			 //List<String> strListNew = new ArrayList<String>();
+			 System.out.println("Process Begins:::");
+			 System.out.println("                 ");
+			 System.out.println("enter  EMAIL");
+			 String email=sc.next();
+			 System.out.println("Checking whether existing user......");
+			 if(emailtoTask.containsKey(email)==true)
+			 {
+				 modify(email);
+				 
+		    		
+			 }
+
+			 else
+			 {
+				 System.out.println("Does not Exist");
+				 
+				 System.out.println("\n Register as New User......\n");
+
+			 List<String> strListNew = new ArrayList<String>();
+	
+			
+	    	char x1='y';
+	    	do
+	    	{
+	    	System.out.println("enter  value to be inserted");
+	    	String value=sc.next();
+	    	strListNew.add(value);	    	
+	    		    	
+	    	emailtoTask.put(email,strListNew);
+		
+	    	System.out.println("Do you want to enter another element to the list");
+	    	x1=sc.next().charAt(0);
+	    	}
+	    	while(x1=='y');
+	    	displayList();
+	    	}
+			 System.out.println("                 ");
+			System.out.println("Do you want to Continue Add another user....................");
+        	x=sc.next().charAt(0);
+		 }
+			 while(x=='y');
+		 }
+	 
+	 
+	 
+	 //code for modifying details of existing users
+	 
+	 public void modify(String email)
+	 {
+		 char ch='y';
+		 System.out.println("Email Already exist");
+		 System.out.println("\nDo you want to edit your List?");
+	     ch =sc.next().charAt(0);
+	     if(ch=='y')
+	     {
+	    	 
+	    	
+	    	 char ch1='y';
+	    	 do
+	    	 {
+		
+	      List<String> getList=emailtoTask.get(email);
+	     
+	       System.out.println(getList);
+	       System.out.println("Enter Index of the element to be updated:");
+	      
+	       int toBeModifiedIndex=sc.nextInt();
+	       if((toBeModifiedIndex<getList.size())&&(toBeModifiedIndex>=0))
+	       {
+	       
+			
+	       
+	       System.out.println("                 ");
+	       System.out.println("Enter value of the element to be updated:");
+	       
+	       String toBeModified=sc.next();
+	       System.out.println("                 ");
+	       getList.set(toBeModifiedIndex, toBeModified);
+	       emailtoTask.put(email,getList);
+	       displayList();
+	       }
+	       else
+	       {
+	    	   System.out.println("Index out of Bound");
+	    	   
+	    	   System.out.println("Do you want to update list? then enter Y    ");
+	    	   char x=sc.next().charAt(0);
+	    	   if(x=='y')
+	    	   {
+				System.out.println("enter  value to be inserted");
+		    	String value=sc.next();
+		    	getList.add(toBeModifiedIndex,value);
+		
+		    	 System.out.println(emailtoTask);
+		    	 System.out.println("   ");
+	    	   }
+	    	   else
+	    	   {
+	    		   System.out.println(getList); 
+	    		   //System.out.println("Last index of your list is  "+  lastIndexOf(getList));
+	    		   System.out.println("You must enter valid index");
+	    	   }
+				
+	       }
+
+	    	System.out.println("Do you want to contine edit list.......");
+	    	ch1=sc.next().charAt(0);
+	       
+	    	 }
+	    	 while(ch1=='y');
+	     }
+    			
+		 
+	 }
+	 
+	 
+	 
+	
+
+
+
+	
+
+
+	// code for removing list item/ remove entire list based on email
+	 public void removeList()
+	 {
+		 
+		 char ch='y';
+		 System.out.println("           ");
+		 System.out.println("\nDo you want to remove info of user from your List?");
+	     ch =sc.next().charAt(0);
+	     System.out.println("Please Enter your  EMAIL");
+		 String email=sc.next();
+	     
+		 	
+	      List<String> getList=emailtoTask.get(email);
+	      
+	      // System.out.println(get(emailtoTask,getList));
+	       //System.out.println(emailtoTask);
+	       
+	       if(getList.isEmpty()==true)
+	    	{
+	    		displayList();
+	    	
+	    	}
+	    	else
+	    	{
+	    		//displayList();
+	    		System.out.println("\n"
+	    				+ "   Enter your choice \n"
+	    				+ "   1  For Remove Item\n"
+	    				+ "\n"
+	    				+ "   2  For Remove List");
+	    		int choice=sc.nextInt();
+	    		if(choice==1)
+	    		{
+	    	 System.out.println("Enter Index of the element to be removed ?:");
+	    	int index=sc.nextInt();
+	    	 if((index<getList.size())&&(index>=0))
+	    	 {
+	    		 getList.remove(index);
+	    		 emailtoTask.put(email,getList);
+	    	displayList();
+	    	 }
+	    	 else
+	    	 {
+	    		 System.out.println("Enter any valid Index");
+	    		 
+	    	
+	    		}
+	    		}
+	    		else if(choice==2)
+	    		{
+	    			getList.removeAll(getList);
+	    			emailtoTask.put(email,getList);
+	    			displayList();
+	    		}
+	    		else
+	    		{
+	    			System.out.println("Wrong Entry");
+	    			
+	    		}
+	    			
+	    	System.out.println("Do you want to contine edit list.......");
+	    	ch=sc.next().charAt(0);
+	       
+	    	 }
+	    	 while(ch=='y');
+	     
+		 
+	 }
+	 
+	
+		
+   
+
+
+
+
+	public void displayList()
+    {
+    	
+    	if(emailtoTask.isEmpty()==true)
+    	{
+    		System.out.println(" List is Empty");
+    	
+    	}
+    	else
+    	{
+    	for (Map.Entry<String,List<String>>  entry : emailtoTask.entrySet())
+   		 {
+    			 System.out.println("                 ");
+			
+    		System.out.println("Key = " + entry.getKey() +    ", Value = " + entry.getValue());
+    		
+   		 }
+    		
+	
+    	
+    	}
+    }
+    public void accessDetails()
+    {
+    	System.out.println("enter email to be searched");
+    	String email=sc.next();
+    	 if(  emailtoTask.containsKey(email)==true)
+    	 {
+    	 System.out.println("Existing List contains given email id "   + email);
+    	 List<String> getList=emailtoTask.get(email);
+    	 
+	       if(getList.isEmpty()==true)
+	    	{
+	    	   
+	    	   System.out.println();
+	    	   System.out.println(getList);
+	    	   System.out.println("Empty");
+	    	}
+	       else
+	       {
+	    	   System.out.println("List of items related to this"   + email +   " are....");
+	 	      
+		       System.out.println(getList);
+		       
+	    	 
+	       	 System.out.println("Enter Index of the element to be accessed ?:");
+	       
+	          int index_Element=sc.nextInt();
+	          
+	          //if((index_Element>=strList.indexOf(strList) )||(index_Element<=strList.lastIndexOf(strList)))
+	       	   if((index_Element<getList.size())&&(index_Element>=0))
+	       	   {
+	       		   
+	          //access list elements using index with get () method
+	          System.out.println("Element at index " +  index_Element + "is    "  + getList.get(index_Element));
+	          }
+	       	 else
+	         {
+	      	   
+	      	   System.out.println("Enter any valid Index");
+	         }
+	       }
+	    	
+	    	}
+	      
+  
+    else
+    	System.out.println("Existing List does not contains given email id "   +  email);
+     	}
+
+}
