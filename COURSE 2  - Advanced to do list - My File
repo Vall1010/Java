@@ -1,0 +1,285 @@
+import java.util.*;
+
+public class ToDoAppVal {
+
+	static ToDoAppVal mainObj = new ToDoAppVal();
+	Map<String, List<String>> emailVsTask = new HashMap<String, List<String>>();
+	Scanner sc = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		String Exit = null;
+
+		System.out.println("Welcome to our to do app V2!");
+		Scanner sc = new Scanner(System.in);
+
+		mainObj.mainMenu();
+	}
+
+	public void doCheck() {
+		int input = 0;
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Please Enter your email add: ");
+		String emailIn = sc.nextLine();
+
+		if (emailVsTask.containsKey(emailIn) == true) {
+			System.out.println("email add verified , The account and list are as follows: ");
+			mainObj.viewProfiles(emailIn);
+
+		} else {
+
+			System.out.println("Invalid email, Please enter 1 to try again or 2 to create an account");
+			int inputCheck = sc.nextInt();
+
+			switch (inputCheck) {
+
+			case 1:
+				mainObj.doCheck();
+
+				break;
+
+			case 2:
+				mainObj.doCreateProfile();
+
+				break;
+
+			}
+
+		}
+
+	}
+
+	public void mainMenu() {
+
+		int option = 0;
+
+		System.out.println("Please choose from 1 of the following options ");
+		System.out.println("Enter 1  to create profile and list");
+		System.out.println("Enter 2  to update list ");
+		System.out.println("Enter 3  to display profile and list");
+		System.out.println("Enter 4  to add list in Existing profile");
+		System.out.println("Enter 5  to remove task in existing profile");
+		System.out.println("Enter 6  to clear all tasks in existing profile");
+		System.out.println("Enter 7  to exit app");
+
+		option = sc.nextInt();
+
+		switch (option) {
+
+		case 1:
+			mainObj.doCreateProfile();
+
+			break;
+
+		case 2:
+
+			mainObj.doUpdate();
+			break;
+
+		case 3:
+
+			System.out.println("Please enter your email add:");
+			String emaildisplay = sc.next();
+			mainObj.viewProfiles(emaildisplay);
+
+			break;
+
+		case 4:
+
+			System.out.println("Please enter your email add:");
+			String emailupdate = sc.next();
+			mainObj.doAddToExistingList(emailupdate);
+			break;
+
+		case 5:
+			mainObj.doRemove();
+			break;
+
+		case 6:
+			System.out.println("Please enter your email add:");
+			String emailClearTask = sc.next();
+			mainObj.doClear(emailClearTask);
+
+			break;
+
+		case 7:
+
+			System.out.println("Thank you for using V3 of the To do App!!! ");
+			break;
+
+		default:
+			System.out.println("Please enter valid selection");
+
+			break;
+		}
+
+	}
+
+	public void doCreateProfile() {
+		String Exit = null;
+		List<String> strListNew = new ArrayList<String>();
+
+		System.out.println("Please Create a Profile, Enter your email add: ");
+		String email = sc.next();
+
+		do {
+			System.out.println("Please enter a task: ");
+			String task = sc.next();
+			strListNew.add(task);
+
+			System.out.println(task);
+
+			emailVsTask.put(email, strListNew);
+
+			System.out.println("Enter y to exit");
+			Exit = sc.next();
+
+		} while (!Exit.equals("y"));
+
+		mainObj.mainMenu();
+
+	}
+
+	public void viewProfiles(String email) {
+
+		List<String> getList = emailVsTask.get(email);
+		System.out.println(getList);
+
+		mainObj.mainMenu();
+
+	}
+
+	public void doUpdate() {
+
+		int input = 0;
+		String Exit = null;
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("To update your list,  Please Enter your email add: ");
+		String emailIn = sc.nextLine();
+
+		if (emailVsTask.containsKey(emailIn) == true) {
+
+			List<String> getList = emailVsTask.get(emailIn);
+			System.out.println(getList);
+
+			System.out.println("Please enter the new value of the selected task");
+			String indexNewVal = sc.nextLine();
+
+			System.out.println("Please enter the index of task you would like to update");
+			int index = sc.nextInt();
+
+			getList.set(index, indexNewVal);
+
+			System.out.println("List has been updated to" + getList);
+
+			mainObj.mainMenu();
+
+		} else {
+
+			System.out.println("Invalid email, Please enter 1 to try again or 2 to create an account");
+			int inputCheck = sc.nextInt();
+
+			switch (inputCheck) {
+
+			case 1:
+				mainObj.doUpdate();
+
+				break;
+
+			case 2:
+				mainObj.doCreateProfile();
+
+				break;
+
+			}
+
+			mainObj.mainMenu();
+		}
+
+	}
+
+	public void doAddToExistingList(String email) {
+		String Exit = null;
+		List<String> strListNew = new ArrayList<String>();
+
+		do {
+			System.out.println("Please enter a task: ");
+			String task = sc.next();
+			strListNew.add(task);
+
+			System.out.println(task);
+
+			emailVsTask.put(email, strListNew);
+
+			System.out.println("Enter y to exit");
+			Exit = sc.next();
+
+		} while (!Exit.equals("y"));
+
+		System.out.println("List has been updated to" + strListNew);
+
+		mainObj.mainMenu();
+
+	}
+
+	public void doRemove() {
+
+		int input = 0;
+		String Exit = null;
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("To remove or clear  your list,  Please Enter your email add: ");
+		String emailIn = sc.nextLine();
+
+		if (emailVsTask.containsKey(emailIn) == true) {
+
+			List<String> getList = emailVsTask.get(emailIn);
+			System.out.println(getList);
+
+			System.out.println("Please enter the index of task you would like to remove");
+			int index = sc.nextInt();
+
+			getList.remove(index);
+
+			System.out.println("List has been updated to" + getList);
+
+			mainObj.mainMenu();
+
+		} else {
+
+			System.out.println("Invalid email, Please enter 1 to try again or 2 to create an account");
+			int inputCheck = sc.nextInt();
+
+			switch (inputCheck) {
+
+			case 1:
+				mainObj.doUpdate();
+
+				break;
+
+			case 2:
+				mainObj.doCreateProfile();
+
+				break;
+
+			}
+
+			mainObj.mainMenu();
+		}
+
+	}
+
+	public void doClear(String emailIn) {
+		
+		
+		List<String> mainList = emailVsTask.get(emailIn);
+		mainList.clear();
+		mainObj.mainMenu();
+		
+	}
+
+}
