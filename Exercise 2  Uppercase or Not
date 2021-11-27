@@ -1,0 +1,34 @@
+
+//Import Scanner
+import java.util.Scanner;
+
+//Created Class
+public class CaseUpperOrNot {
+	// Created Main
+	public static void main(String[] args) {
+		// Scanner Object
+		Scanner objScan = new Scanner(System.in);
+		// Welcome Message
+		System.out.println("Welcome case checker app!!");
+		// Asking for a letter
+		System.out.println("Please enter a letter: ");
+		String input = objScan.next();
+		// Object of class to call method
+		CaseUpperOrNot obj = new CaseUpperOrNot();
+		String output = obj.caseCheck(input);
+		System.out.println(output);
+		objScan.close();
+	}
+
+	// method to check the input if Upper case or Not
+	public String caseCheck(String x) {
+		// used this , otherwise I will be using if(x == 'A'||
+		// x=='B'||x=='C'||=='D'....||x=='Z')
+		if (Character.isUpperCase(x.charAt(0))) {
+			System.out.println("The String is in Uppercase");
+		} else {
+			System.out.println("The String is in Lowercase");
+		}
+		return x;
+	}
+}

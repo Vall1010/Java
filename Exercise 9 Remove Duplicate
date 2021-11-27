@@ -1,0 +1,14 @@
+import java.util.*;
+
+public class RemoveDuplicate {
+	public static void main(String[] args) {
+		int[] a = { 1, 2, 3, 3, 4, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9 };
+		Set<Integer> setSample = new HashSet<Integer>();
+		for (int i : a) {
+			setSample.add(i);
+		}
+		for (int elements : setSample) {
+			System.out.println(elements);
+		}
+	}
+}

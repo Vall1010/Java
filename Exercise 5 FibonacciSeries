@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class FibonacciSeries {
+	public static void main(String[] args) {
+		int repeat;
+		do {
+			int input1 = 0;
+			Scanner objScan = new Scanner(System.in);
+			System.out.println("Welcome to our Fibonacci series app!!");
+			FibonacciSeries mainObj = new FibonacciSeries();
+			int ans = mainObj.CompFab(input1);
+			System.out.println(" Continue?(Enter 1 to restart and 2 to exit)");
+			repeat = objScan.nextInt();
+		} while (repeat == 1);
+		System.out.println("Thank you for using the app! Have a great day!");
+	}
+
+	public int CompFab(int n) {
+		int firstNum = 0;
+		int secNum = 1;
+		Scanner objScan = new Scanner(System.in);
+		System.out.println("Please enter the length of the series: ");
+		n = objScan.nextInt();
+		System.out.println("Fibonacci Series of " + n + " ");
+		for (int i = 1; i <= n; i++) {
+			System.out.print(firstNum + ", ");
+			int nextNum = firstNum + secNum;
+			firstNum = secNum;
+			secNum = nextNum;
+		}
+		return n;
+	}
+}

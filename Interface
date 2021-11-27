@@ -1,0 +1,53 @@
+Interface 1	  
+###########
+  
+ public interface CdPlayer {  
+  
+  	public void playCd();  
+  	  
+  	  
+}  
+  
+  
+Interface 2	  
+###########
+  
+package interface2;  
+  
+public interface DvdPlayer {  
+  	public void playDvd();  
+}  
+  
+  
+Class Music Player
+###########	  
+  
+public class MusicPlayer implements CdPlayer, DvdPlayer {  
+  	public void playCd() {  
+  
+  	  	System.out.println("This is from CD");  
+  	}  
+  
+  	public void playDvd() {  
+  
+  	  	System.out.println("This is from DVD");  
+  
+  	}  
+}  
+  
+ 	 
+ 
+User App  
+###########  
+  
+  
+public class UserApp {  
+  
+  	public static void main(String[] args) {  
+  	  	  
+    MusicPlayer obj = new MusicPlayer();     obj.playCd();  
+  	  	obj.playDvd();  
+  
+  	}  
+  
+}  

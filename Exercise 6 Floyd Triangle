@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class FloydTri {
+	public static void main(String[] args) {
+		Scanner objScan = new Scanner(System.in);
+		System.out.println("Welcome to our Floyd Triangle app!!");
+		// input for No of rows to be printed
+		System.out.println("Please enter a natural number to represent how many columns will be displayed: ");
+		int input = objScan.nextInt();
+		FloydTri obj = new FloydTri();
+		int output = obj.doFtri(input);
+		System.out.println(output);
+		objScan.close();
+	}
+
+	public int doFtri(int rows) {
+		int i, columns, number = 1;
+		for (i = 1; i <= rows; i++) {
+			for (columns = 1; columns <= i; columns++) {
+				System.out.print(number + " ");
+				// Incrementing each value displayed per loop
+				number++;
+			}
+			// next row
+			System.out.println();
+		}
+		return rows;
+	}
+}

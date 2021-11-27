@@ -1,0 +1,24 @@
+
+import java.util.Scanner;
+
+public class ConsonantOrVowel {
+	public static void main(String[] args) {
+		Scanner objScan = new Scanner(System.in);
+		System.out.println("Welcome Consonant or Vowel app!!");
+		System.out.println("Please enter a letter: ");
+		char input = objScan.next().charAt(0);
+		ConsonantOrVowel obj = new ConsonantOrVowel();
+		char output = obj.consOrV(input);
+		System.out.println(output);
+		objScan.close();
+	}
+
+	public char consOrV(char x) {
+		if (x == 'a' || x == 'e' || x == 'i' || x == 'o' || x == 'u' || x == 'A' || x == 'E' || x == 'I' || x == 'O'
+				|| x == 'U')
+			System.out.println(x + " is vowel");
+		else
+			System.out.println(x + " is consonant");
+		return x;
+	}
+}

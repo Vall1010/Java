@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+class PrimeOrNot {
+	public static void main(String[] args) {
+		Scanner objScan = new Scanner(System.in);
+		System.out.println("Welcome to our Prime or Not app!!");
+		System.out.println("Please enter an integer: ");
+		int input = objScan.nextInt();
+		PrimeOrNot obj = new PrimeOrNot();
+		String output = obj.isPrimeOrNot(input);
+		System.out.println(output);
+		objScan.close();
+	}
+
+	public static String isPrimeOrNot(int num) {
+		if (num < 0) {
+			return "not valid";
+		}
+		if (num == 0 || num == 1) {
+			return "not prime";
+		}
+		if (num == 2 || num == 3) {
+			return "prime number";
+		}
+		if ((num * num - 1) % 24 == 0) {
+			return "prime";
+		} else {
+			return "not prime";
+		}
+	}
+}
